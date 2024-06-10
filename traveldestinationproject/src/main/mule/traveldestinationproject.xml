@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:http="http://www.mulesoft.org/schema/mule/http"
+      xmlns:file="http://www.mulesoft.org/schema/mule/file"
+      xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+      xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+      xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="
+          http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+          http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+          http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+          http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+          http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+
+    <http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config">
+        <http:listener-connection host="0.0.0.0" port="8081"/>
+    </http:listener-config>
+
+    <http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" basePath="/Destinations">
+        <http:request-connection host="localhost" port="5150"/>
+    </http:request-config>
+
+    <jms:config name="JMS_Config" doc:name="JMS Config" doc:id="5c55c5de-cec6-45ea-b283-a5daf77b4eb4">
+        <jms:active-mq-connection>
+            <jms:factory-configuration brokerUrl="tcp://localhost:61616"/>
+        </jms:active-mq-connection>
+    </jms:config>
+
+    <!-- Flow to get all destinations -->
+    <jms:config name="JMS_Config1" doc:name="JMS Config" doc:id="fa88370d-5a80-439f-bef2-61b37bc55daa">
+        <jms:active-mq-connection>
+            <jms:factory-configuration brokerUrl="tcp://localhost:61616"/>
+        </jms:active-mq-connection>
+    </jms:config>
+    <flow name="getDestinationsFlow">
+        <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/get-all"/>
+        <http:request method="GET" doc:name="Request" config-ref="HTTP_Request_configuration" path="/"/>
+        <logger level="INFO" doc:name="Logger" message="Response: #[payload]"/>
+        <file:write path="C:\Users\larak\Desktop\NIIS\getDestinations_response.txt" doc:name="Write Response" mode="APPEND">
+            <file:content><![CDATA[#[payload]]]></file:content>
+        </file:write>
+    </flow>
+
+    <!-- Flow for ativemq -->
+    <flow name="traveldestinationprojectFlow" doc:id="be9856ba-ab9c-48c9-ad70-020cce19660f">
+        <jms:listener doc:name="On New Message" doc:id="8d04da13-1c52-4745-9e94-321a88e1b1c8" config-ref="JMS_Config1" destination="get all destinations" inboundContentType="application/json" inboundEncoding="UTF-8"/>
+        <logger level="INFO" doc:name="Logger" doc:id="995d5c53-f262-4110-b46b-126f3ee4422f" message="It is received"/>
+        <file:write doc:name="Write" doc:id="d58710d6-be39-44fa-8af5-372f2a579cd7" path="C:\Users\larak\Desktop\NIIS\activemq-connectionWithMule.txt"/>
+    </flow>
+
+    <flow name="getDestinationByIdFlow">
+        <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/get/{id}"/>
+        <http:request method="GET" doc:name="Request" config-ref="HTTP_Request_configuration" path="#[attributes.uriParams.id]"/>
+        <logger level="INFO" doc:name="Logger" message="Response: #[payload]"/>
+        <file:write path="C:\Users\larak\Desktop\NIIS\getDestinationById_response.txt" doc:name="Write Response" mode="APPEND">
+            <file:content><![CDATA[#[write(payload, 'application/json')]]]></file:content>
+        </file:write>
+    </flow>
+
+    <!-- Flow to add a new destination -->
+    <flow name="addDestinationFlow">
+        <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/add"/>
+        
+        <!-- Transform incoming payload to the required JSON structure -->
+        <set-payload value="#[output application/json ---
+        {
+            Id: payload.destinations.Id,
+            Name: payload.destinations.Name,
+            Type: payload.destinations.Type,
+            Code: payload.destinations.Code,
+            Price: payload.destinations.Price
+        }]" doc:name="Set Payload"/>
+
+        <!-- Log the payload being sent -->
+        <logger level="INFO" doc:name="Logger" message="Sending payload: #[write(payload, 'application/json')]"/>
+
+        <!-- Make HTTP POST request to the backend -->
+        <http:request method="POST" doc:name="Request" config-ref="HTTP_Request_configuration" path="/">
+            <http:body><![CDATA[#[payload]]]></http:body>
+            <http:headers><![CDATA[#[output application/java --- {"Content-Type" : "application/json"}]]]></http:headers>
+        </http:request>
+
+        <!-- Log the status code after the HTTP request -->
+        <logger level="INFO" doc:name="Logger" message="Status Code: #[attributes.statusCode]"/>
+
+        <!-- Write response to a file -->
+        <file:write path="C:\Users\larak\Desktop\NIIS\addDestination_response.txt" doc:name="Write Response" mode="APPEND">
+            <file:content><![CDATA[#[write(payload, 'application/json')]]]></file:content>
+        </file:write>
+
+        <!-- Error Handling -->
+        <error-handler>
+            <on-error-continue>
+                <!-- Log the error description and the response body with corrected syntax -->
+                <logger level="ERROR" doc:name="Error Logger" message='#[output application/json --- error.description ++ "\n" ++ write(payload, "application/json")]'/>
+
+                <!-- Optionally, write the error response to a file for further analysis, using corrected syntax -->
+                <file:write path="C:\Users\larak\Desktop\NIIS\addDestination_error_response.txt" doc:name="Write Error Response" mode="APPEND">
+                    <file:content><![CDATA[#[output application/json --- error.description ++ "\n" ++ write(payload, "application/json")]]]></file:content>
+                </file:write>
+            </on-error-continue>
+        </error-handler>
+    </flow>
+
+     <!-- Flow to update a destination -->
+    <flow name="updateDestinationFlow">
+        <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/update/{id}"/>
+
+        <!-- Step 1: Set request body to a variable -->
+        <set-variable variableName="requestBody" value="#[payload]" doc:name="Set Request Body"/>
+
+        <!-- Step 2: Retrieve the existing destination from the backend -->
+        <http:request method="GET" doc:name="Get Destination" config-ref="HTTP_Request_configuration" path="#[vars.id]">
+            <http:headers><![CDATA[#[output application/java --- {"Content-Type" : "application/json"}]]]></http:headers>
+        </http:request>
+
+        <!-- Step 3: Merge incoming payload with existing destination data -->
+        <ee:transform doc:name="Merge Payloads">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+                output application/json
+                var existingData = payload
+                var incomingData = vars.requestBody
+                ---
+                {
+                    Id: incomingData.Id,
+                    Name: incomingData.Name,
+                    Type: existingData.Type,
+                    Code: existingData.Code,
+                    Price: existingData.Price
+                }]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+
+        <!-- Log the payload being sent -->
+        <logger level="INFO" doc:name="Logger" message="Sending payload: #[write(payload, 'application/json')]"/>
+
+        <!-- Step 4: Make HTTP PUT request to the backend to update the destination -->
+        <http:request method="PUT" doc:name="Request" config-ref="HTTP_Request_configuration" path="#[vars.id]">
+            <http:body><![CDATA[#[payload]]]></http:body>
+            <http:headers><![CDATA[#[output application/java --- {"Content-Type" : "application/json"}]]]></http:headers>
+        </http:request>
+
+        <!-- Step 5: Transform the response to include Id, Name, Type, Code, and Price -->
+        <ee:transform doc:name="Transform Response">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+                output application/json
+                ---
+                {
+                    Id: payload.Id,
+                    Name: payload.Name,
+                    Type: payload.Type,
+                    Code: payload.Code,
+                    Price: payload.Price
+                }]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+
+        <!-- Log the transformed response -->
+        <logger level="INFO" doc:name="Logger" message="Transformed Payload: #[write(payload, 'application/json')]"/>
+
+        <!-- Write response to a file -->
+        <file:write path="C:\Users\larak\Desktop\NIIS\updateDestination_response.txt" doc:name="Write Response" mode="APPEND">
+            <file:content><![CDATA[#[write(payload, 'application/json')]]]></file:content>
+        </file:write>
+
+        <!-- Error Handling -->
+        <error-handler>
+            <on-error-continue>
+                <!-- Log the error description and the response body with corrected syntax -->
+                <logger level="ERROR" doc:name="Error Logger" message='#[output application/json --- error.description ++ "\n" ++ write(payload, "application/json")]'/>
+
+                <!-- Optionally, write the error response to a file for further analysis, using corrected syntax -->
+                <file:write path="C:\Users\larak\Desktop\NIIS\updateDestination_error_response.txt" doc:name="Write Error Response" mode="APPEND">
+                    <file:content><![CDATA[#[output application/json --- error.description ++ "\n" ++ write(payload, "application/json")]]]></file:content>
+                </file:write>
+            </on-error-continue>
+        </error-handler>
+    </flow>
+
+    <!-- Flow to delete a destination -->
+    <flow name="deleteDestinationFlow">
+        <http:listener doc:name="Listener" config-ref="HTTP_Listener_config" path="/delete/{id}"/>
+        
+        <!-- Step 1: Log the incoming request -->
+        <logger level="INFO" doc:name="Logger" message="Deleting destination with ID: #[attributes.uriParams.id]"/>
+
+        <!-- Step 2: Retrieve the existing destination details -->
+        <http:request method="GET" doc:name="Get Destination" config-ref="HTTP_Request_configuration" path="#[attributes.uriParams.id]">
+            <http:headers><![CDATA[#[output application/java --- {"Content-Type" : "application/json"}]]]></http:headers>
+        </http:request>
+        
+        <!-- Step 3: Store the retrieved destination details -->
+        <set-variable variableName="deletedDestination" value="#[payload]" doc:name="Set Deleted Destination"/>
+        
+        <!-- Step 4: Delete the destination -->
+        <http:request method="DELETE" doc:name="Request" config-ref="HTTP_Request_configuration" path="#[attributes.uriParams.id]"/>
+        
+        <!-- Step 5: Log and write the details of the deleted destination -->
+        <logger level="INFO" doc:name="Logger" message="Deleted Destination: #[write(vars.deletedDestination, 'application/json')]"/>
+        <file:write path="C:\Users\larak\Desktop\NIIS\deleteDestination_response.txt" doc:name="Write Response" mode="APPEND">
+            <file:content><![CDATA[#[write(vars.deletedDestination, 'application/json')]]]></file:content>
+        </file:write>
+
+        <!-- Error Handling -->
+        <error-handler>
+            <on-error-continue type="HTTP:NOT_FOUND">
+                <!-- Handle the case when the destination is not found (404) -->
+                <logger level="ERROR" doc:name="Error Logger" message="Destination not found for deletion: #[error.description]"/>
+                <set-payload value='#[{
+                    "message": "Destination not found for deletion",
+                    "details": error.description
+                }]' doc:name="Set Not Found Payload"/>
+                <file:write path="C:\Users\larak\Desktop\NIIS\deleteDestination_error_response.txt" doc:name="Write Error Response" mode="APPEND">
+                    <file:content><![CDATA[#[write(payload, 'application/json')]]]></file:content>
+                </file:write>
+            </on-error-continue>
+            <on-error-continue>
+                <!-- Log the error description and the response body with corrected syntax for other errors -->
+                <logger level="ERROR" doc:name="Error Logger" message='#[output application/json --- error.description ++ "\n" ++ write(payload, "application/json")]'/>
+
+                <!-- Optionally, write the error response to a file for further analysis, using corrected syntax -->
+                <file:write path="C:\Users\larak\Desktop\NIIS\deleteDestination_error_response.txt" doc:name="Write Error Response" mode="APPEND">
+                    <file:content><![CDATA[#[output application/json --- error.description ++ "\n" ++ write(payload, "application/json")]]]></file:content>
+                </file:write>
+            </on-error-continue>
+        </error-handler>
+    </flow>
+
+</mule>

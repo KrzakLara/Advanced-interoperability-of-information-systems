@@ -1,0 +1,12 @@
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\bin\Debug\net8.0\SharedData.deps.json
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\bin\Debug\net8.0\SharedData.dll
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\bin\Debug\net8.0\SharedData.pdb
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.AssemblyInfoInputs.cache
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.AssemblyInfo.cs
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.csproj.CoreCompileInputs.cache
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.dll
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\refint\SharedData.dll
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.pdb
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\ref\SharedData.dll
+C:\Users\larak\Desktop\NIIS\NaprednaInteroperabilnostProjekt\BE_TravelDestinations\SharedData\obj\Debug\net8.0\SharedData.csproj.AssemblyReference.cache

@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "Travel destination name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1132sll",
+        "columns": null
+      },
+      "id": "Field_1cee913",
+      "key": "update_name"
+    }
+  ],
+  "type": "default",
+  "id": "update-name",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.23.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

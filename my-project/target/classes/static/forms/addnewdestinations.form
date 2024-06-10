@@ -1,0 +1,53 @@
+{
+  "components": [
+    {
+      "label": "Name",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0ani2je",
+        "columns": null
+      },
+      "id": "Field_1tnxqbg",
+      "key": "name"
+    },
+    {
+      "label": "Type",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0v5j7f0",
+        "columns": null
+      },
+      "id": "Field_1kxgo2b",
+      "key": "type"
+    },
+    {
+      "label": "Code",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_0edv19l",
+        "columns": null
+      },
+      "id": "Field_12had7s",
+      "key": "code"
+    },
+    {
+      "label": "Price",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1rrnyer",
+        "columns": null
+      },
+      "id": "Field_05da0kj",
+      "key": "price"
+    }
+  ],
+  "type": "default",
+  "id": "add-new",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.23.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

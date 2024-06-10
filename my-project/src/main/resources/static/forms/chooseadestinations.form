@@ -1,0 +1,51 @@
+{
+  "components": [
+    {
+      "label": "Enter an Id",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_15dsynd",
+        "columns": null
+      },
+      "id": "Field_0wri5nd",
+      "key": "destinationId"
+    },
+    {
+      "values": [
+        {
+          "label": "Get that destination",
+          "value": "GET"
+        },
+        {
+          "label": "Update destination name",
+          "value": "PUT"
+        },
+        {
+          "label": "Add new destination",
+          "value": "POST"
+        },
+        {
+          "label": "Delete a destination",
+          "value": "DELETE"
+        }
+      ],
+      "label": "What do you want to do?",
+      "type": "radio",
+      "layout": {
+        "row": "Row_1sd7kt2",
+        "columns": null
+      },
+      "id": "Field_0v7es0v",
+      "key": "operation"
+    }
+  ],
+  "type": "default",
+  "id": "ChooseDestination",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.23.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

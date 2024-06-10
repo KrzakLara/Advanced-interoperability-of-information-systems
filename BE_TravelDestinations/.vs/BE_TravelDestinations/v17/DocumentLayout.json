@@ -1,0 +1,127 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaInteroperabilnostProjekt\\BE_TravelDestinations\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05C17A89-2865-4B8F-A9F5-FB6F55426FCB}|SharedData\\SharedData.csproj|c:\\users\\larak\\desktop\\niis\\naprednainteroperabilnostprojekt\\be_traveldestinations\\shareddata\\models\\destinationstype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05C17A89-2865-4B8F-A9F5-FB6F55426FCB}|SharedData\\SharedData.csproj|solutionrelative:shareddata\\models\\destinationstype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5C318-38DA-4EDD-84AA-4F5A325DCAF0}|..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\BE_TravelDestinations.csproj|c:\\users\\larak\\desktop\\niis\\naprednaiis_projekt\\be_traveldestinations\\controllers\\destinationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5C318-38DA-4EDD-84AA-4F5A325DCAF0}|..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\BE_TravelDestinations.csproj|c:\\users\\larak\\desktop\\niis\\naprednaiis_projekt\\be_traveldestinations\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5C318-38DA-4EDD-84AA-4F5A325DCAF0}|..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\BE_TravelDestinations.csproj|c:\\users\\larak\\desktop\\niis\\naprednaiis_projekt\\be_traveldestinations\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5C318-38DA-4EDD-84AA-4F5A325DCAF0}|..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\BE_TravelDestinations.csproj|c:\\users\\larak\\desktop\\niis\\naprednaiis_projekt\\be_traveldestinations\\controllers\\zeebecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5C318-38DA-4EDD-84AA-4F5A325DCAF0}|..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\BE_TravelDestinations.csproj|c:\\users\\larak\\desktop\\niis\\naprednaiis_projekt\\be_traveldestinations\\datapart\\zeebeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4BD5C318-38DA-4EDD-84AA-4F5A325DCAF0}|..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\BE_TravelDestinations.csproj|c:\\users\\larak\\desktop\\niis\\naprednaiis_projekt\\be_traveldestinations\\datapart\\idestinationsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DestinationsType.cs",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaInteroperabilnostProjekt\\BE_TravelDestinations\\SharedData\\Models\\DestinationsType.cs",
+              "RelativeDocumentMoniker": "SharedData\\Models\\DestinationsType.cs",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaInteroperabilnostProjekt\\BE_TravelDestinations\\SharedData\\Models\\DestinationsType.cs",
+              "RelativeToolTip": "SharedData\\Models\\DestinationsType.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T22:46:28.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Properties\\launchSettings.json",
+              "RelativeToolTip": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAmwCAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-07T14:57:29.919Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ZeebeService.cs",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\ZeebeService.cs",
+              "RelativeDocumentMoniker": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\ZeebeService.cs",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\ZeebeService.cs",
+              "RelativeToolTip": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\ZeebeService.cs",
+              "ViewState": "AQIAAAEBAAAAAAAAAAAUwBUBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T14:56:40.879Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IDestinationsServices.cs",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\IDestinationsServices.cs",
+              "RelativeDocumentMoniker": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\IDestinationsServices.cs",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\IDestinationsServices.cs",
+              "RelativeToolTip": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\DataPart\\IDestinationsServices.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAiwEMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T14:56:34.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ZeebeController.cs",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\ZeebeController.cs",
+              "RelativeDocumentMoniker": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\ZeebeController.cs",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\ZeebeController.cs",
+              "RelativeToolTip": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\ZeebeController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAUwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T14:55:05.931Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DestinationsController.cs",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\DestinationsController.cs",
+              "RelativeDocumentMoniker": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\DestinationsController.cs",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\DestinationsController.cs",
+              "RelativeToolTip": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Controllers\\DestinationsController.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAmwFMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T14:55:04.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Program.cs",
+              "RelativeDocumentMoniker": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Program.cs",
+              "ToolTip": "C:\\Users\\larak\\Desktop\\NIIS\\NaprednaIIS_projekt\\BE_TravelDestinations\\Program.cs",
+              "RelativeToolTip": "..\\..\\NaprednaIIS_projekt\\BE_TravelDestinations\\Program.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAkwCQAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-07T14:54:53.291Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
